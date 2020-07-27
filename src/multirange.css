@@ -1,0 +1,55 @@
+@supports (--css: variables) {
+	input[type='range'].multirange {
+		display: inline-block;
+
+		height: 10px;
+		width: 300px;
+		margin: 0;
+		padding: 0;
+
+		vertical-align: top;
+
+		border-radius: 3px;
+		outline: none;
+		background: #ddd;
+
+		-webkit-appearance: none;
+	}
+
+
+	input[type='range'].multirange::-webkit-slider-thumb {
+		cursor: pointer;
+	}
+
+
+	input[type='range'].multirange.original {
+		position: absolute;
+
+		-webkit-appearance: none;
+	}
+
+	input[type='range'].multirange.original::-webkit-slider-thumb {
+		position: relative;
+		z-index: 2;
+	}
+
+	input[type="range"].multirange.ghost {
+		-webkit-appearance: none;
+
+		position: relative;
+		background: var(--track-background);
+		--track-background: linear-gradient(to right,
+		transparent var(--low), var(--range-color) 0,
+		var(--range-color) var(--high), transparent 0) no-repeat 0 50% / 100% 50%;
+		--range-color: lightseagreen;
+	}
+
+	input[type="range"].multirange.ghost::-webkit-slider-runnable-track {
+		background: var(--track-background);
+	}
+
+	input[type="range"].multirange.ghost::-webkit-slider-thumb {
+		position: relative;
+		z-index: 2;
+	}
+}
